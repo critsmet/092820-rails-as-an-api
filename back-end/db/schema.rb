@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_13_163252) do
+ActiveRecord::Schema.define(version: 2021_01_14_160757) do
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.integer "population"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "country_id"
+  end
 
   create_table "countries", force: :cascade do |t|
     t.string "name"

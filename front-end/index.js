@@ -32,7 +32,7 @@ function handleSubmitCityForm(e){
     })
     .then(function(cityJsonObj){
       let countryCitiesUl = document.getElementById(`${cityJsonObj.country_id}-cities`)
-      countryCitiesUl.innerHMTL += makeOneCityObjLI(cityJsonObj)
+      countryCitiesUl.innerHTML += makeOneCityObjLI(cityJsonObj)
     })
   }
 }
@@ -92,7 +92,7 @@ function makeOneCityObjLI(cityObj){
 
 function buildCountryDiv(countryObj){
 
-  let stringOfCityLIs = countryObj.cities.map(makeOneCityObjLI).join("")
+  let stringOfCityLIs = countryObj.cities ? countryObj.cities.map(makeOneCityObjLI).join("") : ''
 
   return `
     <div id="${countryObj.name}" data-id="${countryObj.id}" class="country-div">
